@@ -1,0 +1,11 @@
+{% extends 'app:layouts/dashboard.html' %}
+
+{% block main %}
+  {% with sidebar=False %}
+    {{ block.super }}
+  {% endwith %}
+{% endblock main %}
+
+{% block content %}
+  Welcome to Dashboard
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'app:layouts/base.html' %}
+{% load fullurl staticfiles %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block main %}
+  <div class="px-4 sm:px-8 lg:px-16 xl:px-40 py-2 flex flex-wrap pt-4">
+    <main class="main">
+      {% block content %}
+      {% endblock content %}
+    </main>
+  </div>
+{% endblock main %}
+
+{% block javascripts %}
+  {{ block.super }}
+{% endblock %}

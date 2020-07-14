@@ -1,0 +1,42 @@
+// Font awesome
+$fa-font-path: '../fonts/vendor/font-awesome';
+@import "~font-awesome/scss/font-awesome";
+
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://github.com/tailwindcss/tailwindcss/blob/master/src/plugins/css/preflight.css
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/base";
+ */
+@tailwind base;
+
+@import "common/variables";
+
+/**
+ * This injects any component classes registered by Tailwind plugins.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/components";
+ */
+@tailwind components;
+
+@import "common/global";
+@import "components/grids";
+@import "components/form";
+@import "components/button";
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/utilities";
+ */
+@tailwind utilities;

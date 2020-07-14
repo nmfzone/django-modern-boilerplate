@@ -1,0 +1,13 @@
+form {
+  .form-control {
+    @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
+
+    &:focus {
+      @apply outline-none shadow-outline;
+    }
+  }
+
+  .form-label {
+    @apply block text-gray-700 font-bold py-2;
+  }
+}

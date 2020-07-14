@@ -1,0 +1,17 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+*.py[cod]
+*.log
+*.sql
+*.iml
+*.sqlite
+.env
+.env.behat
+package-lock.json
+/node_modules
+/public/dist
+/public/media
+/public/static/hot
+artifacts
+celerybeat*

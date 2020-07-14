@@ -1,0 +1,10 @@
+{
+    "/js/manifest.js": "/js/manifest.js?id=7db827d654313dce4250",
+    "/js/app.js": "/js/app.js?id=8f00f298d1848093499c",
+    "/css/app.css": "/css/app.css?id=00646fda518f90719cc2",
+    "/css/dashboard.css": "/css/dashboard.css?id=fc9d332fe799fdec28ad",
+    "/js/dashboard.js": "/js/dashboard.js?id=2b72d3f5c8d8818150dd",
+    "/js/vendor/common.js": "/js/vendor/common.js?id=b9d3ce3f3e574a6d7624",
+    "/js/vendor/jquery.js": "/js/vendor/jquery.js?id=ce8a25063d932e9584db",
+    "/js/vendor/vue.js": "/js/vendor/vue.js?id=b15257ac430ebbe41a4c"
+}

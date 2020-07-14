@@ -1,0 +1,66 @@
+{% extends 'app:layouts/base.html' %}
+{% load fullurl %}
+
+{% block main %}
+  <div class="bg-gray-100 px-4 sm:px-8 lg:px-16 xl:px-40 py-2 flex items-center justify-center min-h-screen">
+    <div class="w-full bg-green-600 md:w-1/2 lg:w-1/3 rounded-lg overflow-hidden shadow-md pt-8 pb-8 px-6">
+      <div class="text-xl md:text-2xl font-bold text-center text-white">Login</div>
+
+      <div class="pt-2">
+        {% error '__all__' %}
+          <div class="bg-red-100 text-sm border border-red-400 text-red-700 px-4 py-3 rounded text-md" role="alert">
+            {% get_error '__all__' %}
+          </div>
+        {% else %}
+          {% if next %}
+            <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-2 text-center text-md">
+              <p>Please login to see this page.</p>
+            </div>
+          {% endif %}
+        {% enderror %}
+
+        <form class="mt-6" action="{% fullurl 'login' %}" method="POST">
+          {% csrf_token %}
+
+          <input type="hidden" name="next" value="{{ next }}">
+
+          <div class="mt-1">
+            <label for="username" class="form-label text-md text-white-impt">E-Mail Address</label>
+
+            <div class="col-md-6">
+              <input id="username" type="text" class="form-control text-md {% error 'username' %} is-invalid {% enderror %}" name="username" value="{% old_input 'username' %}" required autocomplete="email" autofocus>
+
+              {% error 'username' %}
+                <span class="invalid-feedback" role="alert">
+                  <strong>{% get_error 'username' %}</strong>
+                </span>
+              {% enderror %}
+            </div>
+          </div>
+
+          <div class="mt-1">
+            <label for="password" class="form-label text-md text-white-impt">Password</label>
+
+            <div class="col-md-6">
+              <input id="password" type="password" class="form-control text-md {% error 'password' %} is-invalid {% enderror %}" name="password" required autofocus>
+
+              {% error 'password' %}
+                <span class="invalid-feedback" role="alert">
+                  <strong>{% get_error 'password' %}</strong>
+                </span>
+              {% enderror %}
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <div class="flex justify-end">
+              <button type="submit" class="btn text-md bg-gray-800 hover:bg-gray-900 submit-btn">
+                Login
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock main %}

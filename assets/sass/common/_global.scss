@@ -1,0 +1,35 @@
+[v-cloak] { display: none; }
+
+.display-none {
+  display: none !important;
+}
+
+.v-c {
+  height: 100%;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btw {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.list-group-item {
+  &.active {
+    a:link, a:visited {
+      color: #ffffff;
+    }
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+body {
+  @apply font-body;
+}

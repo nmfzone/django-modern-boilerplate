@@ -1,0 +1,63 @@
+{% extends 'app:layouts/base.html' %}
+{% load fullurl staticfiles %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="{% mix 'css/dashboard.css' %}" type="text/css" />
+{% endblock %}
+
+{% block main %}
+  <header class="bg-white w-full z-20 border-b-2 border-gray-300">
+    <div class="px-4 sm:px-8 lg:px-16 xl:px-40 py-2">
+      <nav class="flex items-center justify-between">
+        <a class="navbar-brand" href="{% fullurl 'index' %}">
+          {{ APP_NAME }}
+        </a>
+
+        <div class="block sm:hidden">
+          <button type="button" class="navbar-toggler">
+            <span class="navbar-toggler-bar"></span>
+            <span class="navbar-toggler-bar"></span>
+            <span class="navbar-toggler-bar"></span>
+          </button>
+        </div>
+
+        <div class="hidden sm:flex">
+          <ul class="menu flex flex-col">
+            {% if not user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% fullurl 'login' %}">Login</a>
+              </li>
+            {% else %}
+              <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                  {{ user.name }} <span class="fa fa-chevron-down"></span>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% fullurl 'logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                  </a>
+
+                  <form id="logout-form" style="display: none" action="{% fullurl 'logout' %}" method="POST">
+                    {% csrf_token %}
+                  </form>
+                </div>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="px-4 sm:px-8 lg:px-16 xl:px-40 py-2 flex flex-wrap">
+    <main class="main">
+      {% block content %}
+      {% endblock content %}
+    </main>
+  </div>
+{% endblock main %}
+
+{% block javascripts %}
+  <script type="text/javascript" src="{% fullstatic 'js/dashboard.js' %}"></script>
+{% endblock javascripts %}

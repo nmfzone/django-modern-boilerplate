@@ -1,0 +1,6 @@
+[behave]
+#stderr_capture=False
+#stdout_capture=False
+
+[behave.userdata]
+
