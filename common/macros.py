@@ -23,7 +23,7 @@ def add_method(cls):
 
 def override_method(cls, after=True):
     def decorator(func):
-        new_parent_method_name = '_' + func.__name__ + '_parent'
+        new_parent_method_name = '_%s_parent' % func.__name__
         setattr(cls, new_parent_method_name, getattr(cls, func.__name__))
 
         @wraps(func)
